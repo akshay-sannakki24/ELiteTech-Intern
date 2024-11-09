@@ -18,8 +18,7 @@ Display information about them, including source and destination IP addresses, p
 
 
 ### Installation
-- To install the required library, use the following pip command:
-   - pip install scapy
+- To install the required library, use this pip command : pip install scapy
 - Installation Steps for Npcap:
    - Download Npcap from Npcap's official website.
    - Run the installer and ensure to check the box that says "Install Npcap in WinPcap API-compatible Mode" during installation.
