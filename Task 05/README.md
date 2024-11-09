@@ -14,11 +14,16 @@ Display information about them, including source and destination IP addresses, p
 ## Requirements
 - Python 3.x
 - `scapy` library
+- Npcap
 
 
 ### Installation
-To install the required library, use the following pip command:
-- pip install scapy
+1. To install the required library, use the following pip command:
+   - pip install scapy
+2. Installation Steps for Npcap:
+   - Download Npcap from Npcap's official website.
+   - Run the installer and ensure to check the box that says "Install Npcap in WinPcap API-compatible Mode" during installation.
+   - After installation, restart your system if necessary.
 
 
 ## Note
