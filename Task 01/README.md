@@ -31,21 +31,5 @@ This project demonstrates how to encrypt and decrypt messages using the Caesar c
 
 
 
-## Code Explanation
-#### Functions
-1. main():
-   - Prompts the user to input a message and a shift value.
-   - Calls the caesar_cipher function to encrypt the message and then decrypt it.
-   - Prints the encrypted and decrypted messages.
-
-2. caesar_cipher(text, shift):
-   - Takes a string text and an integer shift as input.
-   - Iterates through each character in the string:
-   - If the character is an alphabet letter, it shifts it by the specified amount.
-   - Non-alphabet characters are added to the result unchanged.
-   - Returns the resulting string.
-
-
-
 ## License
 This project is open-source and available under the MIT License.
